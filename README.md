@@ -122,7 +122,31 @@ Now you don't need to repeat above steps always to run the app rather its one ti
 But if you clone the project in new location then again you need to repeat step 3(only).
 ```
 
+## How to Contribute?
+* 1 -- First just fork the repo.
+* 2 -- Clone your local forked repo using `git clone https://github.com/__your_user_name__/ISDB.git`
+* 3 -- Now go cloned folder and open a terminal then run `git branch`.
+```
+* => master
+* 'development'
+```
+* 4 -- Now checkout ot the **development** branch by running `git checkout master`.
+* 5 -- Now, You have to make your branch. So, their are some certain rule while making your branch.<br>
+-- You have to write name's first letter and then feature name. You can create it by running
 
+```
+git checkout -b name's_first_letter-Feature_name
+// example => git checkout -b PKS-API_EndPoints
+```
+* 6 -- Now make the changes in your branch by running `git push origin your_branch_name`.
+* 7 -- Then make a PR from their. If you don't know to make a PR the go to this [link](https://help.github.com/articles/creating-a-pull-request/).
 
-
-
+## How to get connected with the main repo?
+Before start working on you forked repo, make sure to sync it with parent repo.
+* 1 -- Now before we start, you have to add parent git repo as remote with a name (like we have added remote origin for our forked repo). Eg let’s give remote parent a name upstream.
+```
+git remote add upstream https://github.com/AltCampus/ISDB.git
+```
+* 2 -- Go to the development branch using `git checkout development` and run `git pull origin upstream`.
+* 3 -- Came back to your branch using `git checkout your_branch_name` and the run again `git pull origin upstream`.
+* 4 -- In case you can't checkout to the **development** then that means you have something that is not committed. If it's necessary then first commit it then checkout **development** otherwise run `git stash -u` then checkout to the **development**.
