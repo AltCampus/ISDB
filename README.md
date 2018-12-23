@@ -25,17 +25,28 @@ Note : The folder structure may changes i.e we may include/exclude some folders/
 All server related files are in './server'.
 * '/controllers' --  Methods to interact with DB and reflects the data on views.
 * '/models' -- MongoDB collections schema
-* '/modules' -- Contains all the modules that is going to necessay for applications behaviour like passport.js
+* '/modules' -- Contains all the modules that is going to necessary for applications behaviour like passport.js
 * 'views' -- Apllication related htmls files related to application routes
 * '/db' -- MongoDB Driver code to be used in application
 * './app.js' -- Contains the application main server related code
 
 ### Frontend Part
 
+All client related files are in './client/src'
+
+* './components' -- This folder contians components presented on website when App is rendered that can be seprated into two categories that are presentational(static) components and container(dynamic) components.
+
+* './actions' -- This folder contain all the actionCreators( events like onClick).
+
+* './reducers' -- contains reducer(method) which will act upon actions being recieved. 
+
+* './store' -- it contains createStore keeps state tree of app and is single source of truth.
+
+* './App,js' -- entry point and will render root element where app lives.
 
 ### Common To Both Frontend and Backend
 * package.json -- Contain all the packages for the application
-* eslintrc.json -- Contain all the configuration of styling javascript. Using Airbnb style-guide for linting
+* eslintrc.json -- Contain all the configuration of styling javascript. Using Airbnb style-guide for linting(like checking tab spaces and semi-colons).
 
 ## Packages Used
 All packages can find in `./package.json`.
@@ -43,6 +54,13 @@ All packages can find in `./package.json`.
 Note : Packages are not confirmed yet. They might can be changed.
 ```
 ### Frontend Packages
+
+* `react-redux` -- Used for connecting react with redux via connect.
+* `redux` --  Used for creating store .
+* `react-router-dom` -- used for routing to render components on routes(from  '/'(home) ->  to '/nav' or -> '/').
+* `redux-thunk` -- Is a middleware to retrive data from another source.
+* `node-sass` --  Used for compiling scss or sass to css.
+
 
 ### Backend Packages
 * `nodemon` -- Used for live server reloading.
