@@ -109,7 +109,6 @@ this command installs all the node related packages required to run the app loca
 ```
 * 4 -- Launch the application using below command:
 ```
-Below command will run gulpfile.js and start the static website(Frontend)
 >>> npm install -g nodemon
 >>> npm start
 The application will be running at http://localhost:8001 URL
