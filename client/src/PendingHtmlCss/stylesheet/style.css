@@ -1,0 +1,29 @@
+
+
+/*=======================================*/
+/*  Hero */
+/*=======================================*/
+.image-container {
+	max-width: 1200px;
+	width: 100%;
+	margin: 10px auto;
+	text-align: center;
+	box-shadow:5px 5px 6px 6px #777;
+	background: white;
+}
+.flex-content {
+	display: flex;
+	flex-wrap: wrap;
+}
+.image-box {
+	width: 23%;
+	text-align: center;
+	margin: .7rem;
+	box-shadow:0 10px 6px -6px #777;
+}
+.image-box img {
+	width: 100%;
+	height: 100%;
+}
+
+
