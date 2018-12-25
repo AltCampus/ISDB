@@ -3,8 +3,23 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('./webpack.config');
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo')(mongoose);
+const bodyParser = require('body-parser');
+
+const port = 8001;
 
 const app = express();
+
+// connecting mongodb
+mongoose.connect('mongodb://localhost/ISDB', { useNewUrlParser: true }, function(err, connection) {
+  if(err) throw err;
+  else console.log('connected to mongodb');
+});
+
+// use middleware for parsing body into json
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Setting view engine
 app.set('view engine', 'pug');
@@ -25,7 +40,12 @@ if (process.env.NODE_ENV === 'development') {
   }));
 }
 
-app.listen(8001, (err) => {
+// routers
+app.use('/api/v1', require('./server/routes/api.v1'));
+app.use(require('./server/routes/index'));
+
+// listen the port
+app.listen(port, (err) => {
   if (err) throw err;
-  console.log('App is listening on http://localhost:8001');
+  console.log(`App is listening on http://localhost:${port}`);
 });
