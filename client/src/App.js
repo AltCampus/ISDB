@@ -4,6 +4,7 @@ import './scss/App.scss';
 import Dashboard from './components/Dashboard';
 import About from './components/About';
 import Contact from './components/Contact';
+import Startup from './components/Startups';
 
 
 class App extends Component {
@@ -16,11 +17,12 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Switch>
+        <Startup />
+          {/* <Switch>
             <Route exact path='/' component={Dashboard} />
             <Route exact path='/about' component={About} />
             <Route exact path='/contact' component={Contact} />
-          </Switch>
+          </Switch> */}
       </div>
       </BrowserRouter>
     );
