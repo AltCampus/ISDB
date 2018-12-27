@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('./webpack.config');
 const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo')(mongoose);
+// const MongoStore = require('connect-mongo')(mongoose);
 const bodyParser = require('body-parser');
 
 const port = 8001;
@@ -42,7 +42,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // routers
 app.use('/api/v1', require('./server/routes/api.v1'));
-app.use(require('./server/routes/index'));
+// app.use(require('./server/routes/index'));
 
 // listen the port
 app.listen(port, (err) => {
