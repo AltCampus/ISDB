@@ -13,3 +13,13 @@ export function postStartupsDetails(data) {
           .then(data => console.log(data))
     }
 }
+
+export function getAllCompanyData() {
+    return dispatch => {
+        fetch(`${url}/startups`)
+        .then(res => res.json())
+        .then(data => {
+            dispatch({type: 'GET_DATA_SUCCESSFULLY', data})
+        })
+    }
+}

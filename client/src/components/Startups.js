@@ -1,4 +1,7 @@
 import React, {Component,Fragment} from 'react';
+import { connect } from 'react-redux';
+import { postStartupsDetails } from '../actions/actionsCreator';
+
 
 class Startup extends Component {
   state = {
@@ -19,6 +22,11 @@ handleChange = (e) => {
     [e.target.name]: e.target.value
   })
 }
+
+handleSubmit = (e) => {
+  e.preventDefault();
+  this.props.dispatch(postStartupsDetails(this.state))
+}
   render() {
     return (
       <Fragment>
@@ -32,9 +40,9 @@ handleChange = (e) => {
         <input type ="text" name="overview" placeholder="Overview" onChange={this.handleChange}/>
         <input type ="text" name="sector" placeholder="Sector" onChange={this.handleChange}/>
         <input type ="text" name="product" placeholder="Product" onChange={this.handleChange}/>
-        <button onSubmit={this.handleSubmit}>submit</button>
+        <button onClick={this.handleSubmit}>submit</button>
       </Fragment>
     )
   }
 }
-export default Startup;
+export default connect()(Startup);
