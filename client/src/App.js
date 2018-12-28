@@ -47,6 +47,7 @@ render() {
       <Header/>
       <HeroIndex/>
       <Footer/> 
+      {/* <Startup /> */}
       </div>
     </BrowserRouter>
     );

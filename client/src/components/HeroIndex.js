@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getAllCompanyData } from '../actions/actionsCreator';
 
 class HeroIndex extends Component {
+	componentWillMount = () => {
+		this.props.dispatch(getAllCompanyData())
+	}
+
   render() {
     return (
     	<section className="hero">
@@ -177,6 +183,6 @@ class HeroIndex extends Component {
   }
 }
 
-export default HeroIndex;
+export default connect()(HeroIndex);
 
 
