@@ -14,4 +14,7 @@ module.exports = {
       });
     });
   },
+  logIn: (req, res) => {
+    console.log('login called');
+  },
 };
