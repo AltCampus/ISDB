@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Startup = require('../models/Startup');
+const userController = require('./../controllers/user.controller');
 
 router.get('/check', (req, res) => {
   res.send('You are connected');
@@ -16,13 +17,14 @@ router.post('/startups', (req, res) => {
       });
     }
   });
-
-  router.get('/startups', (req, res) => {
-    Startup.find({}, (err, data) => {
-      res.json(data);
-    });
-  });
-
 });
+
+router.get('/startups', (req, res) => {
+  Startup.find({}, (err, data) => {
+    res.json(data);
+  });
+});
+
+router.post('/signup', userController.signUp);
 
 module.exports = router;
