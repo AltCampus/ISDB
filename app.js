@@ -6,10 +6,13 @@ const webpackConfig = require('./webpack.config');
 const mongoose = require('mongoose');
 // const MongoStore = require('connect-mongo')(mongoose);
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const port = 8001;
 
 const app = express();
+
+app.use(cors());
 
 // connecting mongodb
 mongoose.connect('mongodb://localhost/ISDB', { useNewUrlParser: true }, function(err, connection) {
