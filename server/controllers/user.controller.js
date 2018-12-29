@@ -16,5 +16,12 @@ module.exports = {
   },
   logIn: (req, res) => {
     console.log('login called');
+    const userDetails = req.body;
+    console.log(userDetails, 'check in login');
+    User.findOne({ username: userDetails.username }, (err, data) => {
+      if (err) throw err;
+      console.log(data);
+      res.redirect('/admin');
+    });
   },
 };

@@ -10,6 +10,7 @@ import Startup from './components/Startups';
 import Header from './components/Header';
 import HeroIndex from './components/HeroIndex';
 import Footer from './components/Footer';
+import AdminLogin from './components/admin-components/AdminLogin';
 
 class App extends Component {
   constructor(props) {
@@ -40,15 +41,16 @@ class App extends Component {
 // <BrowserRouter />
 
 
-render() {
-  return (
-    <BrowserRouter>
-      <div>
-      <Header/>
-      <HeroIndex/>
-      <Footer/> 
-      </div>
-    </BrowserRouter>
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
+          <Header />
+          <HeroIndex />
+          <Footer />
+          {/* <Route path="/login" exact component={AdminLogin} /> */}
+        </div>
+      </BrowserRouter>
     );
   }
 }

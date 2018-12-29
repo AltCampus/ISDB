@@ -2,20 +2,53 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 class AdminLogin extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			username: '',
+			password: '',
+		};
+	}
+
+	handleChange = (e) => {
+		this.setState({
+			[e.target.name] : e.target.value
+		})
+	}
+
+	handleSubmit = e => {
+		e.preventDefault();
+		console.log(this.state);
+		fetch(`/api/v1/login`, {
+			method : 'POST',
+			
+			headers : {
+				'Content-Type' : 'application/json'
+			},
+			body : JSON.stringify(this.state)
+		})
+	}
+	
   render() {
     return (
-    	<div>
-    		<header className="admin-header"><button>Logout</button></header>
-				<div className="login-section">
-					<form className="login-form" action="">
-						<span>Username:</span>
-						<input type="username"/>
-						<span>Password:</span>
-						<input type="password"/>
-						<button type="submit"> Login </button>
-					</form>	
-				</div>
-    	</div>
+		<div>
+			<header className="admin-header">
+				<button>Logout</button>
+			</header>
+			<div className="login-section">
+				<form className="login-form" action="" onSubmit={this.handleSubmit}>
+					<span>Username:</span>
+					<input 
+					type="username" name="username"
+					onChange={this.handleChange}/>
+					<span>Password:</span>
+					<input 
+					type="password" name="password"
+					onChange={this.handleChange}/>
+					<button type="submit"> Login </button>
+				</form>	
+			</div>
+		</div>
   	)
   }
 }
