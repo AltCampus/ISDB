@@ -10,8 +10,8 @@ router.post('/startups', (req, res) => {
   console.log(req.body, 'startups req body');
   const newStartup = new Startup(req.body);
   newStartup.save((err, data) => {
-    if(err) throw err;
-    else  {
+    if (err) throw err;
+    else {
       Startup.find({}, (err, data) => {
         res.json(data);
       });
