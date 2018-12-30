@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
 import './scss/App.scss';
 import './scss/Main.scss';
-import Dashboard from './components/Dashboard';
-import About from './components/About';
-import Contact from './components/Contact';
-import Startup from './components/Startups';
+import Home from './components/Home';
+import Startups from './components/Startups';
+import Startup from './components/Startup';
 
-import Header from './components/Header';
-import HeroIndex from './components/HeroIndex';
-import Footer from './components/Footer';
 
 class App extends Component {
   constructor(props) {
@@ -44,10 +40,11 @@ render() {
   return (
     <BrowserRouter>
       <div>
-      <Header/>
-      <HeroIndex/>
-      <Footer/> 
-      {/* <Startup /> */}
+        <Switch>
+          <Route exact path="/" component={Home}/> 
+          <Route exact path="/startups/:name" component={Startup}/> 
+        </Switch>
+        {/* <Startups /> */}
       </div>
     </BrowserRouter>
     );
@@ -55,4 +52,3 @@ render() {
 }
 
 export default App;
-

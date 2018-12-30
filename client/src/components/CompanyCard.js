@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 
 class CompanyCard extends Component {
   render(){
     const {nameOfCompany, location, sector} = this.props.value;
     return (
-      <div className="small-card">
+      <Link to={`/startups/${nameOfCompany}`} className="small-card">
         <img id="logo" src={require("./../media/zomato.png")}/>
         <div className="right">
           <h2 is="title" >{nameOfCompany}</h2>
@@ -16,7 +18,7 @@ class CompanyCard extends Component {
             <span>{sector}</span>
           </div>
         </div>
-      </div>)
+      </Link>)
   }
 }
 export default CompanyCard;
