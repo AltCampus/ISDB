@@ -19,9 +19,21 @@ module.exports = {
     const userDetails = req.body;
     console.log(userDetails, 'check in login');
     User.findOne({ username: userDetails.username }, (err, data) => {
-      if (err) throw err;
-      console.log(data);
-      res.redirect('/admin');
+      if (data) {
+        if (data.isAdmin) {
+          return res.status(200).json({
+            msg: 'Logged In',
+            redirectTo: '/admin',
+          });
+        }
+        return res.status(200).json({
+          msg: 'Logged In',
+          redirectTo: '/',
+        });
+      }
+      return res.status(401).json({
+        msg: 'Please SignUp.',
+      });
     });
   },
 };

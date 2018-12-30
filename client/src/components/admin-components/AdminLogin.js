@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class AdminLogin extends Component {
 	constructor(props) {
@@ -27,6 +27,11 @@ class AdminLogin extends Component {
 			},
 			body : JSON.stringify(this.state)
 		})
+			// .then(res => {
+			// 	if (res.status === 200) {
+			// 		this.props.history.push('/admin');
+			// 	}
+			// })
 	}
 	
   render() {

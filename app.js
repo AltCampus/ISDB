@@ -43,7 +43,7 @@ if (process.env.NODE_ENV === 'development') {
 // routes for API Endpoints
 app.use('/api/v1', require('./server/routes/api.v1'));
 
-// routes for serving static files
+// routes for serving index file
 app.use(require('./server/routes/index'));
 
 // listen the port

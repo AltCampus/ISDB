@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
 import './scss/App.scss';
 import './scss/Main.scss';
+import './scss/admin.scss';
 import Dashboard from './components/Dashboard';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -11,6 +12,7 @@ import Header from './components/Header';
 import HeroIndex from './components/HeroIndex';
 import Footer from './components/Footer';
 import AdminLogin from './components/admin-components/AdminLogin';
+import AdminHome from './components/admin-components/AdminHome';
 
 class App extends Component {
   constructor(props) {
@@ -45,10 +47,17 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Header />
-          <HeroIndex />
-          <Footer />
-          {/* <Route path="/login" exact component={AdminLogin} /> */}
+          <Route path="/" exact render={  
+            () => (
+              <div>
+                <Header />
+                <HeroIndex />
+                <Footer />
+              </div>
+            )
+          } />
+          <Route path="/login" component={AdminLogin} />
+          <Route path="/admin" component={AdminHome}/>
         </div>
       </BrowserRouter>
     );
