@@ -1,5 +1,6 @@
 const initialState = {
-	companies: []
+	companies: [],
+	searchCompany: []
 }
 
 export default function rootReducer(state = initialState, action){
@@ -7,6 +8,16 @@ export default function rootReducer(state = initialState, action){
 		case "GET_DATA_SUCCESSFULLY": {
 			return {
 			companies: action.data
+			}
+		}
+
+		case "COMPANY_SEARCH": {
+			console.log(action.e)
+			let matchName = state.companies.filter((v) => v.nameOfCompany.includes(action.e.target.value));
+			// let companyName = state.companies.map((v) => v)
+			return {
+				...state,
+				searchCompany: matchName
 			}
 		}
 			
