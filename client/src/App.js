@@ -2,14 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
 import './scss/App.scss';
 import './scss/Main.scss';
-import Dashboard from './components/Dashboard';
-import About from './components/About';
-import Contact from './components/Contact';
 import Startup from './components/Startups';
-
-import Header from './components/Header';
-import HeroIndex from './components/HeroIndex';
-import Footer from './components/Footer';
+import Home from './components/Home';
 
 class App extends Component {
   constructor(props) {
@@ -44,10 +38,10 @@ render() {
   return (
     <BrowserRouter>
       <div>
-      <Header/>
-      <HeroIndex/>
-      <Footer/> 
-      {/* <Startup /> */}
+        <Switch>
+          <Route exact path="/" component={Home}/> 
+        </Switch>
+        <Startup />
       </div>
     </BrowserRouter>
     );
