@@ -14,7 +14,6 @@ export default function rootReducer(state = initialState, action){
 		case "COMPANY_SEARCH": {
 			console.log(action.e)
 			let matchName = state.companies.filter((v) => v.nameOfCompany.includes(action.e.target.value));
-			// let companyName = state.companies.map((v) => v)
 			return {
 				...state,
 				searchCompany: matchName

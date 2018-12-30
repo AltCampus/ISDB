@@ -25,9 +25,9 @@ class HeroIndex extends Component {
 					<section className="card-sec">
 					
 					{
-						!this.props.searchCompany ? this.props.companies.map((value, index) => {
+						this.props.searchCompany ? this.props.searchCompany.map((value, index) => {
 							return <CompanyCard value = {value} key = {index} />
-						}) : this.props.searchCompany.map((value, index) => {
+						}) : this.props.companies.map((value, index) => {
 							return <CompanyCard value = {value} key = {index} />
 						})
 					}
