@@ -27,11 +27,6 @@ class AdminLogin extends Component {
 			},
 			body : JSON.stringify(this.state)
 		})
-			// .then(res => {
-			// 	if (res.status === 200) {
-			// 		this.props.history.push('/admin');
-			// 	}
-			// })
 	}
 	
   render() {
