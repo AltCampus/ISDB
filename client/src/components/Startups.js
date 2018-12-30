@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { postStartupsDetails } from '../actions/actionsCreator';
 
 
-class Startup extends Component {
+class Startups extends Component {
   state = {
    nameOfCompany: "",
     location: "",
@@ -45,4 +45,4 @@ handleSubmit = (e) => {
     )
   }
 }
-export default connect()(Startup);
+export default connect()(Startups);

@@ -4,12 +4,11 @@ import HeroIndex from './HeroIndex';
 import Footer from './Footer';
 
 
-
 class Home extends Component {
   render() {
     return (
       <div>
-        <Header/>
+       <Header/>
       <HeroIndex/>
       <Footer/> 
       </div>

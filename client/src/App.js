@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom'
 import './scss/App.scss';
 import './scss/Main.scss';
-import Startup from './components/Startups';
 import Home from './components/Home';
+import Startups from './components/Startups';
+import Startup from './components/Startup';
+
 
 class App extends Component {
   constructor(props) {
@@ -40,8 +42,9 @@ render() {
       <div>
         <Switch>
           <Route exact path="/" component={Home}/> 
+          <Route exact path="/startups/:name" component={Startup}/> 
         </Switch>
-        <Startup />
+        {/* <Startups /> */}
       </div>
     </BrowserRouter>
     );
@@ -49,4 +52,3 @@ render() {
 }
 
 export default App;
-
