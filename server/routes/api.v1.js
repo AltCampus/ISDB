@@ -16,13 +16,13 @@ router.post('/startups', (req, res) => {
       });
     }
   });
+});
 
-  router.get('/startups', (req, res) => {
-    Startup.find({}, (err, data) => {
-      res.json(data);
-    });
+router.get('/startups', (req, res) => {
+  Startup.find({}, (err, data) => {
+    console.log(data, "data in get method");
+    res.json(data);
   });
-
 });
 
 module.exports = router;
