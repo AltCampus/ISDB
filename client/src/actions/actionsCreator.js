@@ -40,3 +40,11 @@ export function handleSearch(e) {
     e
   }
 }
+
+export function querySearch(query) {
+  return dispatch => {
+    fetch(`${url}/startups/search?query=${query}`)
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
+}
