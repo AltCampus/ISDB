@@ -6,7 +6,7 @@ const webpackConfig = require('./webpack.config');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
-// const MongoStore = require('connect-mongo')(mongoose);
+const MongoConnect = require('connect-mongo')(session);
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -42,10 +42,13 @@ if (process.env.NODE_ENV === 'development') {
 
 // Setting middleware for passport and session
 app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
+  secret: 'ISDB Session',
+  resave: true,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 360000,
+  },
+  store: new MongoConnect({ url: 'mongodb://localhost/ISDB-session' }),
 }));
 app.use(passport.initialize());
 app.use(passport.session());
