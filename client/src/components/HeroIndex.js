@@ -26,6 +26,7 @@ class HeroIndex extends Component {
 						<i className="fas fa-search"></i>
 					</div>
 					<section className="card-sec">
+
 					
 					{
 						this.props.searchCompany ? this.props.searchCompany.map((value, index) => {
@@ -34,6 +35,7 @@ class HeroIndex extends Component {
 							return <CompanyCard value = {value} key = {index} />
 						})
 					}
+
 
 						<div className="small-card">
 							<h2 className="title placeholder" >More...</h2>

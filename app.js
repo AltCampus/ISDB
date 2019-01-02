@@ -28,24 +28,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '/server/views'));
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
 
 // Middleware of webpack
 if (process.env.NODE_ENV === 'development') {
   console.log('in webpack hot middleware');
   const compiler = webpack(webpackConfig);
-
+  
   app.use(webpackDevMiddleware(compiler, {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath,
   }));
 }
 
-// routers
+// routes for API Endpoints
 app.use('/api/v1', require('./server/routes/api.v1'));
-// app.use(require('./server/routes/index'));
+
+// routes for serving index file
+app.use(require('./server/routes/index'));
 
 // listen the port
 app.listen(port, (err) => {
