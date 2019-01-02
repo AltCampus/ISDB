@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 class Header extends Component {
+
+	handleChange = (e) => {
+		console.log(e.target.value);
+	}
+
   render() {
     return (
     <header className="primary-header">

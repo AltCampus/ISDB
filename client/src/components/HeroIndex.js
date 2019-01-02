@@ -13,13 +13,16 @@ class HeroIndex extends Component {
 		this.props.dispatch(getAllCompanyData())
 	}
 
+	handleChange = (e) => {
+		console.log(e.target.value);
+	}
 
   render() {
     return (
     	<section className="hero">
 				<div className="wrapper">
 					<div className="hero-input-box">
-						<input className="hero-search" type="text" name="search-box" placeholder="search"/>
+						<input className="hero-search" type="text" name="search-box" placeholder="search" onChange={this.handleChange}/>
 						<i className="fas fa-search"></i>
 					</div>
 					<section className="card-sec">
@@ -40,8 +43,6 @@ class HeroIndex extends Component {
   }
 }
 
-export default connect(
-	mapStateToProps
-)(HeroIndex);
+export default connect(mapStateToProps)(HeroIndex);
 
 
