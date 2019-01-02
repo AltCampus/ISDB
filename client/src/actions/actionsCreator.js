@@ -1,4 +1,4 @@
-const url = 'http://192.168.0.122:8001/api/v1'
+const url = 'http://192.168.0.102:8001/api/v1'
 
 export function postStartupsDetails(data) {
   console.log("check2")
@@ -31,5 +31,13 @@ export function handleSearch(e) {
   return {
     type: 'COMPANY_SEARCH',
     e
+  }
+}
+
+export function querySearch(query) {
+  return dispatch => {
+    fetch(`${url}/startups/search?query=${query}`)
+    .then(res => res.json())
+    .then(data => console.log(data))
   }
 }

@@ -13,28 +13,6 @@ class App extends Component {
     this.state = {};
   }
 
-  // <BrowserRouter>
-  // <div className="App">
-  // <Startup /><BrowserRouter>
-  // <div className="App">
-  // <Startup />
-  //   {/* <Switch>
-  //     <Route exact path='/' component={Dashboard} />
-  //     <Route exact path='/about' component={About} />
-  //     <Route exact path='/contact' component={Contact} />
-  //   </Switch> */}
-    
-// </div>
-// <BrowserRouter />
-//     {/* <Switch>
-//       <Route exact path='/' component={Dashboard} />
-//       <Route exact path='/about' component={About} />
-//       <Route exact path='/contact' component={Contact} />
-//     </Switch> */}
-    
-// </div>
-// <BrowserRouter />
-
 
 render() {
   return (
