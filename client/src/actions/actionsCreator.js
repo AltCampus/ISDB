@@ -16,13 +16,8 @@ export function postStartupsDetails(data) {
 
 export function editCompanyData(id) {
   return dispatch => {
-    fetch(`${url}/startups/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({id})
-    }).then(res => res.json())
+    fetch(`${url}/startups/${id}`)
+    .then(res => res.json())
     .then(data => console.log(data))
   }
 }
