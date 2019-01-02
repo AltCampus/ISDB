@@ -26,3 +26,10 @@ export function getAllCompanyData() {
       })
   }
 }
+
+export function handleSearch(e) {
+  return {
+    type: 'COMPANY_SEARCH',
+    e
+  }
+}
