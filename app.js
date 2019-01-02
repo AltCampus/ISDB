@@ -6,10 +6,13 @@ const webpackConfig = require('./webpack.config');
 const mongoose = require('mongoose');
 // const MongoStore = require('connect-mongo')(mongoose);
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const port = 8001;
 
 const app = express();
+
+app.use(cors());
 
 // connecting mongodb
 mongoose.connect('mongodb://localhost/ISDB', { useNewUrlParser: true }, function(err, connection) {
@@ -25,24 +28,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '/server/views'));
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
 
 // Middleware of webpack
 if (process.env.NODE_ENV === 'development') {
   console.log('in webpack hot middleware');
   const compiler = webpack(webpackConfig);
-
+  
   app.use(webpackDevMiddleware(compiler, {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath,
   }));
 }
 
-// routers
+// routes for API Endpoints
 app.use('/api/v1', require('./server/routes/api.v1'));
-// app.use(require('./server/routes/index'));
+
+// routes for serving index file
+app.use(require('./server/routes/index'));
 
 // listen the port
 app.listen(port, (err) => {
