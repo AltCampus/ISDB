@@ -1,4 +1,4 @@
-const url = 'http://192.168.0.122:8001/api/v1'
+const url = 'http://192.168.0.102:8001/api/v1'
 
 export function postStartupsDetails(data) {
   console.log("check2")
@@ -14,6 +14,18 @@ export function postStartupsDetails(data) {
   }
 }
 
+export function editCompanyData(id) {
+  return dispatch => {
+    fetch(`${url}/startups/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({id})
+    }).then(res => res.json())
+    .then(data => console.log(data))
+  }
+}
 export function getAllCompanyData() {
   return dispatch => {
     fetch(`${url}/startups`)

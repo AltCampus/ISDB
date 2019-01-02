@@ -13,6 +13,7 @@ import HeroIndex from './components/HeroIndex';
 import Footer from './components/Footer';
 import AdminLogin from './components/admin-components/AdminLogin';
 import AdminHome from './components/admin-components/AdminHome';
+import AdminEdit from './components/admin-components/AdminEdit';
 
 class App extends Component {
   constructor(props) {
@@ -57,6 +58,7 @@ class App extends Component {
           {/* <Route exact path="/startups/:name" component={Startup}/>  */}
           <Route path="/login" component={AdminLogin} />
           <Route path="/admin" component={AdminHome}/>
+          <Route path="/startups/:id/edit" component={AdminEdit}/>
         </div>
       </BrowserRouter>
     );
