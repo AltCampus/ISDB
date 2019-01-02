@@ -8,6 +8,13 @@ const userSchema = new mongoose.Schema({
   isAdmin: { type: Boolean, default: false },
 });
 
+userSchema.methods.verifyPassword = function checkPassowrd(password) {
+  if (this.password === password) {
+    return true;
+  }
+  return false;
+};
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

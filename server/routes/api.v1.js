@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Startup = require('../models/Startup');
 const userController = require('./../controllers/user.controller');
+const auth = require('./../modules/auth');
 
 router.get('/check', (req, res) => {
   res.send('You are connected');
@@ -27,6 +28,8 @@ router.get('/startups', (req, res) => {
 
 router.post('/signup', userController.signUp);
 
-router.post('/login', userController.logIn)
+router.post('/login', userController.logIn);
+
+router.get('/isLoggedIn', userController.isLoggedIn);
 
 module.exports = router;
