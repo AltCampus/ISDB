@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getAllCompanyData } from '../actions/actionsCreator';
+import { getAllCompanyData, handleSearch } from '../actions/actionsCreator';
 import rootReducer from '../reducers';
 import CompanyCard from './CompanyCard';
 
@@ -22,13 +22,15 @@ class HeroIndex extends Component {
     	<section className="hero">
 				<div className="wrapper">
 					<div className="hero-input-box">
-						<input className="hero-search" type="text" name="search-box" placeholder="search" onChange={this.handleChange}/>
+						<input className="hero-search" type="text" name="search-box" placeholder="search" onChange={(e) => this.props.dispatch(handleSearch(e))} />
 						<i className="fas fa-search"></i>
 					</div>
 					<section className="card-sec">
 					
 					{
-						this.props.companies.map((value, index) => {
+						this.props.searchCompany ? this.props.searchCompany.map((value, index) => {
+							return <CompanyCard value = {value} key = {index} />
+						}) : this.props.companies.map((value, index) => {
 							return <CompanyCard value = {value} key = {index} />
 						})
 					}
