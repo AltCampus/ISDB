@@ -43,8 +43,13 @@ export function handleSearch(e) {
 
 export function querySearch(query) {
   return dispatch => {
-    fetch(`${url}/startups/search?query=${query}`)
+    fetch(`${url}/startups?search=${query}`)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(queryData => {
+      dispatch({
+        type: 'SEARCH_QUERY',
+        queryData
+      })
+    })
   }
 }
