@@ -1,4 +1,4 @@
-const url = 'http://192.168.0.102:8001/api/v1'
+const url = 'http://192.168.0.115:8001/api/v1'
 
 export function postStartupsDetails(data) {
   console.log("check2")
@@ -41,6 +41,16 @@ export function handleSearch(e) {
   }
 }
 
+export function adminPanel(data) {
+  return dispatch => {
+    fetch(`${url}/startups/${data.id}/edit`,{
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data.data)
+    })
+    .then(res => res.json())
+    .then(data => console.log(data));
+
 export function querySearch(query) {
   return dispatch => {
     fetch(`${url}/startups?search=${query}`)
@@ -51,5 +61,6 @@ export function querySearch(query) {
         queryData
       })
     }).catch(error => alert("Data not Found"));
+
   }
 }

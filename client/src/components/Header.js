@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { querySearch } from '../actions/actionsCreator';
 
 class Header extends Component {
+
 	state = {
 		query: ''
 	}

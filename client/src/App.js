@@ -56,9 +56,9 @@ class App extends Component {
             )
           } />
           {/* <Route exact path="/startups/:name" component={Startup}/>  */}
-          <Route path="/login" component={AdminLogin} />
-          <Route path="/admin" component={AdminHome}/>
-          <Route path="/startups/:id/edit" component={AdminEdit}/>
+          <Route exact path="/login" component={AdminLogin} />
+          <Route exact path="/admin" component={AdminHome}/>
+          <Route exact path="/admin/startups/:id/edit" component={AdminEdit}/>
         </div>
       </BrowserRouter>
     );

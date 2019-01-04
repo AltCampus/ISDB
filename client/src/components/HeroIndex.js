@@ -13,6 +13,9 @@ class HeroIndex extends Component {
 		this.props.dispatch(getAllCompanyData())
 	}
 
+	handleChange = (e) => {
+		console.log(e.target.value);
+	}
 
   render() {
     return (
@@ -44,8 +47,6 @@ class HeroIndex extends Component {
   }
 }
 
-export default connect(
-	mapStateToProps
-)(HeroIndex);
+export default connect(mapStateToProps)(HeroIndex);
 
 
