@@ -14,6 +14,11 @@ class AdminHome extends Component {
 		// .then(data => this.setState({
 		// 	companies: data
 		// }))
+		fetch('http://192.168.0.102:8001/api/v1/startups')
+		.then(res => res.json())
+		.then(data => this.setState({
+			companies: data
+		}))
 	}
   render() {
     return (
@@ -27,6 +32,10 @@ class AdminHome extends Component {
 							})
 						}	
 
+						
+					<div className="company-add">
+						<button className="company-add-button">Add</button>
+					</div>
 				</div>
     	</div>
   	)

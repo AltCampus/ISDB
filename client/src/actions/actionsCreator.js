@@ -14,6 +14,13 @@ export function postStartupsDetails(data) {
   }
 }
 
+export function editCompanyData(id) {
+  return dispatch => {
+    fetch(`${url}/startups/${id}`)
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
+}
 export function getAllCompanyData() {
   return dispatch => {
     fetch(`${url}/startups`)
@@ -42,6 +49,18 @@ export function adminPanel(data) {
       body: JSON.stringify(data.data)
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => console.log(data));
+
+export function querySearch(query) {
+  return dispatch => {
+    fetch(`${url}/startups?search=${query}`)
+    .then(res => res.json())
+    .then(queryData => {
+      return dispatch({
+        type: 'SEARCH_QUERY',
+        queryData
+      })
+    }).catch(error => alert("Data not Found"));
+
   }
 }

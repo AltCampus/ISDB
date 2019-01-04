@@ -12,13 +12,20 @@ export default function rootReducer(state = initialState, action){
 		}
 
 		case "COMPANY_SEARCH": {
-			console.log(action.e)
-			let matchName = state.companies.filter((v) => v.nameOfCompany.includes(action.e.target.value));
+			let convertCase = action.e.target.value.toLowerCase();
+			let matchName = state.companies.filter((v) => v.nameOfCompany.toLowerCase().includes(convertCase));
 			return {
 				...state,
 				searchCompany: matchName
 			}
 		}
+		case "SEARCH_QUERY": {
+			return {
+				...state, 
+				searchCompany: [action.queryData] || [...state.companies]
+			}
+		}
+			
 		default: return state
 	}
 }
