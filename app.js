@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('./webpack.config');
 const mongoose = require('mongoose');
+// const MongoStore = require('connect-mongo')(mongoose);
 const session = require('express-session');
 const passport = require('passport');
 const MongoConnect = require('connect-mongo')(session);
