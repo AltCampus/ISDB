@@ -9,6 +9,9 @@ import Header from './components/Header';
 import HeroIndex from './components/HeroIndex';
 import Footer from './components/Footer';
 
+import Company from "./components/CompanyPage/Company";
+import "./scss/company.scss";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +23,7 @@ class App extends Component {
       <div>
       <Header/>
       <HeroIndex/>
+      <Company/>
       <Footer/>
       </div>
     );

@@ -1,0 +1,374 @@
+$font-family: "Raleway", sans-serif;
+$search-font-color: #4B505B; /* For Search bar */
+$font-color: #4B505B;
+$button-bg: #00AAFF; /* Applies to search input Border as well*/
+$card-bg: #E9E9E9;
+$header-bg: #1896BD;
+$footer-bg: #323638;
+$gray-areas: #EAEAEA;
+$section-line: #CCC9C9;
+
+// /everywhere color is for refrence
+body {
+    background: #f5f5f5;
+}
+
+
+.hero-comp {
+    font-family: $font-family;
+    background-color: white; //will change with theme
+    // position: relative; //for placement of line and logo can find better alternative
+    // height: 100vh;
+    padding: 20px 0;
+    top: 50px; //will change after header done
+    width: 100%; //width of wrapper
+    // background-image: url("../media/triangles.svg");
+
+    // background-repeat: no-repeat;
+    // filter: hue-rotate(110deg);
+    // background-position: right;
+
+    // border: 1px solid black; //not required just for refrence
+    .line-design {
+        height: 4px;
+        width: 100%;
+        background: linear-gradient(to right, #026ca3, #03667d, #00b4b2, #01a94f 80%); //for refrence
+        position: absolute;
+        filter: hue-rotate(110deg);
+        top: 80%;
+    }
+
+    .back-design {
+        height: 200px;
+        width: 100%;
+        background: url("https://media.glassdoor.com/sqll/300494/flipkart-com-squarelogo-1433217726546.png");
+        background-size: cover;
+        background-position: center;
+        filter: blur(15px);
+        opacity: 0.5;
+    }
+}
+
+.hero-logo {
+    position: relative;
+    width: 100%;
+    top: 70px;
+
+    // height: 40vh;
+    height: 260px;
+    margin-bottom: 60px;
+
+    // background: red;
+
+    .location-site-link {
+        position: absolute;
+        top: 105%;
+        left: 8%;
+
+        .location {
+            padding: 10px 0;
+
+            i {
+                color: #444;
+                margin-right: 5px;
+            }
+        }
+
+        .website-link a:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.logo-name {
+    display: flex;
+
+    // justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 24%;
+    left: 5%;
+
+    .hero-comp__logo-container {
+        width: 200px;
+        height: 200px;
+        border-radius: 7px;
+        border: 2px solid $section-line;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+
+        img {
+            // filter: hue-rotate(-120deg);
+            // filter: hue-rotate(240deg);
+            // filter:  !important;
+            width: 100%;
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
+    }
+
+    .hero-comp__name {
+        color: #26282b;
+        margin-left: 30px;
+        padding-top: 10px;
+        font-weight: 800;
+        font-size: 2.6rem;
+
+        // text-shadow: -1px 1px 0px #444;
+   
+    }
+}
+
+.hero-details {
+    // border-top: 1px solid $section-line;
+    display: grid;
+    width: 80%;
+    margin: 0 auto;
+    grid-template-columns: 3fr 7fr;
+
+    .details-card {
+        // background: green;
+        font-weight: 600;
+        font-size: 1.3rem;
+        width: 100%;
+
+        /* border-radius: 5px; */
+        text-align: left;
+        margin: 0;
+        color: #4B505B;
+
+        /* background: #E9E9E9; */
+        padding: 15px 20px;
+
+        .company-details-container {
+            font-size: 1rem;
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            grid-gap: 15px;
+
+            .details-key {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .about {
+        border-left: 1px solid $section-line;
+        padding: 15px 20px;
+        z-index: 3;
+
+        // background: orange;
+
+        h2 {
+            text-align: left;
+            font-weight: bold;
+            padding-bottom: 10px;
+            color: #4B505B;
+            text-transform: capitalize;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        .about__content {
+            text-align: left;
+        }
+    }
+}
+
+.hero-details2 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    margin: 0  20px 0 300px;
+    grid-gap: 20px;
+
+    .overview-card {
+        grid-row: 1 / span 2;
+
+        .overview-text {
+            font-size: 16px !important;
+            text-align: left;
+            line-height: 1.4;
+            color: #000 !important;
+        }
+    }
+
+    .hero-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px 10px;
+        box-shadow: -10px 6px 8px 0px rgba(0, 0, 0, 0.1);
+
+        .hero-card-header {
+            font-size: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            color: #222;
+            font-weight: 600;
+            flex-basis: 20px;
+        }
+
+        .hero-card-text {
+            font-size: 30px;
+            padding: 20px;
+            color: #555;
+            font-weight: 200;
+        }
+    }
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.display-card {
+    font-weight: 600;
+    font-size: 1.3rem;
+    width: 72%;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px 0px #c0bcbc,-5px 5px 10px 0px #c0bcbc;
+    text-align: left;
+    margin: 50px auto;
+    color: #4B505B;
+    background: white;
+    padding: 15px 20px;
+}
+
+hr.company-details {
+    border-top: 3px solid #CCC9C9;
+    margin-bottom: 20px;
+}
+
+.ratings-cntnr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 2rem 4rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ratings-box {
+    display: flex;
+    width: 20vw;
+    justify-content: space-between;
+    padding: 1rem 0.2rem;
+    align-items: center;
+}
+
+.ceo-rating {
+    display: flex;
+    font-size: 2rem;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.ceo-rating img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.reviews {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 2rem 0;
+}
+
+.rating-sec-logo {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.star-bg i {
+    color: dodgerblue;
+}
+
+.ratings-box img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.reviews-rating-stars {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 2rem;
+}
+
+/*======================
+photo gallery module
+======================*/
+
+.outer-box {
+    /*box-sizing: border-box;*/
+    /*padding: 0.55rem 0;*/
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    position: relative;
+}
+
+.outer-box img {
+    width: 32.9%;
+    height: 240px;
+    object-fit: cover;
+    padding: 0.3rem;
+}
+
+.font-icon-container {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    display: grid;
+    align-content: center;
+    box-shadow: 0 0 0.1rem 0.1rem rgba(255, 255, 255, 0.7);
+}
+
+.outer-box .left {
+    position: absolute;
+    top: 44%;
+    left: 1%;
+}
+
+.outer-box .right {
+    position: absolute;
+    left: 95.1%;
+    top: 44%;
+}
+
+.font-icon-container:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.outer-box .fas {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.outer-box .fas:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.reviews-rating-stars p {
+    margin-left: 2rem;
+}
+
+.common-review {
+    margin: 2.6rem 0 2rem 2rem;
+}
+
+.all-review-sec {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.fa-angle-right {
+    margin-left: 1rem;
+}
