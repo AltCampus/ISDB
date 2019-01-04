@@ -20,11 +20,12 @@ export default function rootReducer(state = initialState, action){
 			}
 		}
 
-		case "SEARCH_QUERY":
+		case "SEARCH_QUERY": {
 			return {
 				...state, 
 				searchCompany: [action.queryData] || [...state.companies]
 			}
+		}
 			
 		default: return state
 	}

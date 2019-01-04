@@ -46,7 +46,7 @@ export function querySearch(query) {
     fetch(`${url}/startups?search=${query}`)
     .then(res => res.json())
     .then(queryData => {
-      dispatch({
+      return dispatch({
         type: 'SEARCH_QUERY',
         queryData
       })
