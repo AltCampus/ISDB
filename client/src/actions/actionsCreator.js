@@ -50,6 +50,6 @@ export function querySearch(query) {
         type: 'SEARCH_QUERY',
         queryData
       })
-    })
+    }).catch(error => alert("Data not Found"));
   }
 }
