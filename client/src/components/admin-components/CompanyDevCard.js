@@ -18,4 +18,4 @@ class CompanyDevCard extends Component {
     )
   }
 }
-export default connect()(CompanyDevCard);
+export default connect()(CompanyDevCard);/startup/5c28b3b65b7231225311f34a/edit

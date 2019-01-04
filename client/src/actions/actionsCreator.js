@@ -16,13 +16,8 @@ export function postStartupsDetails(data) {
 
 export function editCompanyData(id) {
   return dispatch => {
-    fetch(`${url}/startups/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({id})
-    }).then(res => res.json())
+    fetch(`${url}/startups/${id}`)
+    .then(res => res.json())
     .then(data => console.log(data))
   }
 }
@@ -48,8 +43,13 @@ export function handleSearch(e) {
 
 export function querySearch(query) {
   return dispatch => {
-    fetch(`${url}/startups/search?query=${query}`)
+    fetch(`${url}/startups?search=${query}`)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(queryData => {
+      return dispatch({
+        type: 'SEARCH_QUERY',
+        queryData
+      })
+    }).catch(error => alert("Data not Found"));
   }
 }
