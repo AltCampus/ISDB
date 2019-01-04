@@ -4,14 +4,37 @@ const User = require('./../models/User');
 module.exports = {
   signUp: (req, res) => {
     const userDetails = req.body;
-    const newUser = new User({
-      ...userDetails,
-    });
-
-    newUser.save((err, data) => {
-      if (err) throw err;
-      res.status(200).json({
-        data,
+    const { fullName, username, password, email } = req.body;
+    console.log(userDetails);
+    
+    if (fullName === '' || username === '' || password === '' || email === '') {
+      return res.status(400).json({
+        msg: 'All fields are mandantory',
+      });
+    } else if (!email.includes('@')) {
+      return res.status(400).json({
+        msg: 'Your email is invalid',
+      });
+    } else if (password.length <= 4) {
+      return res.status(400).json({
+        msg: 'Password is too short',
+      });
+    }
+    
+    User.findOne({ username }, (err, data) => {
+      if (data !== null) {
+        return res.status(302).json({
+          msg: 'username is not available',
+        });
+      }
+      const newUser = new User({
+        ...userDetails,
+      });
+      newUser.save((err, data) => {
+        if (err) throw err;
+        return res.status(200).json({
+          data,
+        });
       });
     });
   },
