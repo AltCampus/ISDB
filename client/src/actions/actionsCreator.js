@@ -1,4 +1,4 @@
-const url = 'http://192.168.0.102:8001/api/v1'
+const url = 'http://192.168.0.115:8001/api/v1'
 
 export function postStartupsDetails(data) {
   console.log("check2")
