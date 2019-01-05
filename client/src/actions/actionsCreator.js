@@ -1,4 +1,4 @@
-const url = 'http://192.168.0.115:8001/api/v1'
+const url = 'http://192.168.225.35:8001/api/v1'
 
 export function postStartupsDetails(data) {
   console.log("check2")
@@ -50,6 +50,8 @@ export function adminPanel(data) {
     })
     .then(res => res.json())
     .then(data => console.log(data));
+  }
+}
 
 export function querySearch(query) {
   return dispatch => {
@@ -62,5 +64,12 @@ export function querySearch(query) {
       })
     }).catch(error => alert("Data not Found"));
 
+  }
+}
+
+export function currentCompanyDetail(nameOfCompany) {
+  return {
+    type: 'COMPANY_DETAILS',
+    nameOfCompany
   }
 }

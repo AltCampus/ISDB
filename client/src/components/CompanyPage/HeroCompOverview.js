@@ -1,21 +1,29 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 
 
 class Overview extends Component {
 
   render() {
-
+    const { currentCompany } = this.props; 
     return (
       <div className="hero-card overview-card">
         <div className="hero-card-header">
           Overview:
         </div>
         <div className="hero-card-text overview-text">
-          Flipkart is India’s largest e-commerce marketplace with a registered customer base of over 100 million. In the 10 years since it started, Flipkart has come to offer over 80 million products across 80+ categories including Smartphones,    Books, Media, Consumer Electronics, Furniture, Fashion and Lifestyle.
+          {currentCompany.overview}
         </div>
       </div>
     );
   }
 }
 
-export default Overview;
+const mapStateToProps = (state) => {
+  return {
+    currentCompany: state.currentCompany
+  }
+}
+
+
+export default connect(mapStateToProps)(Overview);

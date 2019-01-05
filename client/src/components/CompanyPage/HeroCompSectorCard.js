@@ -1,20 +1,29 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 
 
 class Sector extends Component {
 
   render() {
+    const { currentCompany } = this.props;
     return (
       <div className="hero-card">
         <div className="hero-card-header">
           Sector
         </div>
         <div className="hero-card-text">
-          Technology / Food Service
+          {currentCompany.sector}
         </div>
       </div>
     );
   }
 }
 
-export default Sector;
+const mapStateToProps = (state) => {
+  return {
+    currentCompany: state.currentCompany
+  }
+}
+
+
+export default connect(mapStateToProps)(Sector);

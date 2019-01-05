@@ -1,17 +1,18 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 
 
 class CompanyRating extends Component {
 
   render() {
-
+    const { currentCompany } = this.props;
     return (
       <section className="display-card">
-        <h2>flipcart ratings and reviews</h2>
+        <h2>{currentCompany.nameOfCompany} ratings and reviews</h2>
         <hr className="company-details" />
         <div className="ratings-cntnr">
           <div className="ratings-box">
-            <div className="ratings"><h3>4.0</h3></div>
+            <div className="ratings"><h3>{currentCompany.rating}</h3></div>
             <div className="star-bg"><i className="fas fa-star"></i></div>
             <div className="star-bg"><i className="fas fa-star"></i></div>
             <div className="star-bg"><i className="fas fa-star"></i></div>
@@ -66,4 +67,11 @@ class CompanyRating extends Component {
           );
   }
 }
-export default CompanyRating;
+
+const mapStateToProps = (state) => {
+  return {
+    currentCompany: state.currentCompany
+  }
+}
+
+export default connect(mapStateToProps)(CompanyRating);
