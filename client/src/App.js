@@ -15,54 +15,44 @@ import AdminLogin from './components/admin-components/AdminLogin';
 import AdminHome from './components/admin-components/AdminHome';
 import AdminEdit from './components/admin-components/AdminEdit';
 
-class App extends Component {
+import Company from "./components/CompanyPage/Company";
+import "./scss/company.scss";
+
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-
-  // <BrowserRouter>
-  // <div className="App">
-  // <Startup /><BrowserRouter>
-  // <div className="App">
-  // <Startup />
-  //   {/* <Switch>
-  //     <Route exact path='/' component={Dashboard} />
-  //     <Route exact path='/about' component={About} />
-  //     <Route exact path='/contact' component={Contact} />
-  //   </Switch> */}
-    
-// </div>
-// <BrowserRouter />
-//     {/* <Switch>
-//       <Route exact path='/' component={Dashboard} />
-//       <Route exact path='/about' component={About} />
-//       <Route exact path='/contact' component={Contact} />
-//     </Switch> */}
-    
-// </div>
-// <BrowserRouter />
   render() {
-    return (
+   return (
       <BrowserRouter>
         <div>
+          <Header />
+        <Switch>
           <Route path="/" exact render={  
             () => (
               <div>
-                <Header />
                 <HeroIndex />
-                <Footer />
               </div>
             )
           } />
+<<<<<<< HEAD
+          <Route exact path="/startups/:name" component={Company}/>
+          <Route path="/login" component={AdminLogin} />
+          <Route path="/admin" component={AdminHome}/>
+          </Switch>
+          <Footer />
+=======
           {/* <Route exact path="/startups/:name" component={Startup}/>  */}
           <Route exact path="/login" component={AdminLogin} />
           <Route exact path="/admin" component={AdminHome}/>
           <Route exact path="/admin/startups/:id/edit" component={AdminEdit}/>
+>>>>>>> 098099057f2baf72124657f2a08ad3dec8492de2
         </div>
       </BrowserRouter>
-    );
+    )
   }
 }
 
-export default App;
+
+
