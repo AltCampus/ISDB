@@ -1,6 +1,7 @@
 const initialState = {
 	companies: [],
-	searchCompany: []
+	searchCompany: [],
+	currentCompany: {}
 }
 
 export default function rootReducer(state = initialState, action){
@@ -25,7 +26,14 @@ export default function rootReducer(state = initialState, action){
 				searchCompany: [action.queryData] || [...state.companies]
 			}
 		}
-			
+		case 'COMPANY_DETAILS': {
+			const target = state.companies.filter(company => company.nameOfCompany === action.nameOfCompany)
+			  return {
+				  ...state,
+				  currentCompany: target[0]
+			  }
+			  
+		}	
 		default: return state
 	}
 }

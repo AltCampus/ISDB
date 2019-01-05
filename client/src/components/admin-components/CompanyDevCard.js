@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-
-class CompanyDevCard extends Component {
-
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { editCompanyData } from '../../actions/actionsCreator';
@@ -26,4 +23,4 @@ class CompanyDevCard extends Component {
     )
   }
 }
-export default connect()(CompanyDevCard);/startup/5c28b3b65b7231225311f34a/edit
+export default connect()(CompanyDevCard);

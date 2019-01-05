@@ -1,21 +1,30 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 
 
 class Founded extends Component {
 
   render() {
-
+    const { currentCompany } = this.props;
     return (
       <div className="hero-card">
         <div className="hero-card-header">
           Year Founded
         </div>
         <div className="hero-card-text">
-          2009
+          {currentCompany.yearOfFounded}
         </div>
       </div>
     );
   }
 }
-export default Founded;
+
+const mapStateToProps = (state) => {
+  return {
+    currentCompany: state.currentCompany
+  }
+}
+
+
+export default connect(mapStateToProps)(Founded);
 
