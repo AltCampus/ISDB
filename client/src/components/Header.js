@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { querySearch } from '../actions/actionsCreator';
 
 class Header extends Component {
+
 	state = {
 		query: ''
 	}
@@ -26,7 +27,7 @@ class Header extends Component {
 					<li className="list"><a href="#"><h2 className="header-text"><span className="inverse-header">ac</span><span className="header-text-part2">db</span></h2></a></li>
 					<form className="header-input-box" onSubmit={this.handleSubmit}>
 						<i className="fas fa-search"></i>
-						<input className="header-search" type="text" name="search" placeholder="search" onChange={this.handleChange} />
+						<input className="header-search" type="text" name="search" value = {this.state.query} placeholder="search" onChange={this.handleChange} />
 					</form>
 				</ul>
 			</nav>

@@ -19,7 +19,7 @@ class AdminLogin extends Component {
 	handleSubmit = e => {
 		e.preventDefault();
 		console.log(this.state);
-		fetch(`http://192.168.0.122:8001/api/v1/login`, {
+		fetch(`http://192.168.0.102:8001/api/v1/login`, {
 			method : 'POST',
 			
 			headers : {

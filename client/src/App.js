@@ -13,6 +13,7 @@ import HeroIndex from './components/HeroIndex';
 import Footer from './components/Footer';
 import AdminLogin from './components/admin-components/AdminLogin';
 import AdminHome from './components/admin-components/AdminHome';
+import AdminEdit from './components/admin-components/AdminEdit';
 
 import Company from "./components/CompanyPage/Company";
 import "./scss/company.scss";
@@ -35,11 +36,18 @@ export default class App extends Component {
               </div>
             )
           } />
+<<<<<<< HEAD
           <Route exact path="/startups/:name" component={Company}/>
           <Route path="/login" component={AdminLogin} />
           <Route path="/admin" component={AdminHome}/>
           </Switch>
           <Footer />
+=======
+          {/* <Route exact path="/startups/:name" component={Startup}/>  */}
+          <Route exact path="/login" component={AdminLogin} />
+          <Route exact path="/admin" component={AdminHome}/>
+          <Route exact path="/admin/startups/:id/edit" component={AdminEdit}/>
+>>>>>>> 098099057f2baf72124657f2a08ad3dec8492de2
         </div>
       </BrowserRouter>
     )
